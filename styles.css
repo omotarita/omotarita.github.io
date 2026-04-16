@@ -43,20 +43,85 @@ h3 {
 }
 
 body {
-  font-size: small;
+  font-size: 0.87rem;
   font-family: "Red Hat Text", sans-serif;
-  background-color: #fafafa;
+  background-color: rgb(238, 238, 238);
   color: #2c2c2c;
 }
 
-.sidebar {
-  padding: 2rem 2rem 1rem 1rem;
+a,
+u {
+  text-decoration: none;
+  color: rgb(106, 43, 135);
 }
+
+.sidebar {
+  display: flex;
+  padding: 2rem 2rem 1rem 1rem;
+  flex-shrink: 0;
+  border-right: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  height: fit-content;
+  min-height: calc(100vh - 4rem);
+  flex-direction: column;
+  /* max-width: 3.1rem; */
+}
+
+.sidebar-section {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.sidebar-section a {
+  display: block;
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  color: rgb(96, 94, 89);
+}
+
+.about-content {
+  font-size: 0.87rem;
+  font-family: "Red Hat Text", sans-serif;
+  background-color: rgb(238, 238, 238);
+  color: #2c2c2c;
+
+}
+
+/* .sidebar-label {
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+} */
 
 .page-content {
   display: flex;
   /* gap: 3em; */
   flex-direction: row;
+}
+
+@media (max-width: 460px) {
+  .page-content {
+    display: flex;
+    /* gap: 3em; */
+    flex-direction: column;
+  }
+  .sidebar {
+    display: flex;
+    gap: 3em;
+    flex-direction: row;
+    border-bottom: 1px solid #ddd;
+    position: static;
+    min-width: stretch;
+    min-height: 0;
+    border-right: none;
+    justify-content: center;
+  }
+  .sidebar-footer {
+    display: none;
+  }
 }
 
 .main-content {
