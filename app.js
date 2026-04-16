@@ -19,12 +19,9 @@ async function getBlogPosts(link) {
     };
     blogPosts.push(blogPostObject);
   });
-  console.log(blogPosts);
 
   const blogPostsElement = document.querySelector(".blog-posts");
-  console.log("Found the blog post element!");
   blogPosts.forEach((blogPost) => {
-    console.log(`Looping ${blogPost}`);
     const postElement = document.createElement("div");
     const tempDate = new Date(blogPost.date);
     const blogPostDateFormatted = tempDate.toLocaleDateString("en-GB", {
