@@ -26,9 +26,15 @@ async function getBlogPosts(link) {
   blogPosts.forEach((blogPost) => {
     console.log(`Looping ${blogPost}`);
     const postElement = document.createElement("div");
+    const tempDate = new Date(blogPost.date);
+    const blogPostDateFormatted = tempDate.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
     postElement.classList.add("post");
     postElement.innerHTML = `
-            <h3 class="post-title">${blogPost.title}</h3>
+            <h3 class="post-title">${blogPost.title} <span class="post-date">${blogPostDateFormatted}</span></h3>
             <div class="post-content invisible">${blogPost.content}</div>
         `;
     blogPostsElement.appendChild(postElement);

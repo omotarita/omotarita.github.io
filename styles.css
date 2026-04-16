@@ -88,7 +88,6 @@ u {
   font-family: "Red Hat Text", sans-serif;
   background-color: rgb(238, 238, 238);
   color: #2c2c2c;
-
 }
 
 /* .sidebar-label {
@@ -145,6 +144,14 @@ u {
 .post-title.active {
   color: #252525;
   font-weight: 800;
+}
+
+.post-date {
+  font-family: "Red Hat Text", sans-serif;
+  margin-left: 0.5rem;
+  color: rgba(96, 94, 89, 0.369);
+  font-size: 0.87rem;
+  font-weight: 400;
 }
 
 .post-content {
