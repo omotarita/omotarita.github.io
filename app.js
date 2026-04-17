@@ -52,6 +52,7 @@ async function getBlogPosts(link) {
       } else {
         allPostTitles.forEach((t) => t.classList.remove("active"));
         postTitle.classList.add("active");
+        postTitle.nextElementSibling.classList.remove("invisible");
         postTitle.nextElementSibling.classList.add("visible");
         //   Make its post content visible
       }
