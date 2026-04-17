@@ -117,6 +117,7 @@ u {
     min-height: 0;
     border-right: none;
     justify-content: center;
+    box-sizing: border-box;
   }
   .sidebar-footer {
     display: none;
