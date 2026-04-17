@@ -1,5 +1,5 @@
 const url =
-  "https://public-api.wordpress.com/rest/v1.1/sites/omotaraedu.home.blog/posts/";
+  "https://public-api.wordpress.com/rest/v1.1/sites/oe2private.home.blog/posts/";
 
 var blogPosts = [];
 
