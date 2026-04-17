@@ -8,14 +8,11 @@ async function getBlogPosts(link) {
   let results = await response.json();
   let rawBlogPosts = results.posts;
   rawBlogPosts.forEach((rawblogPost) => {
-    // postTitle = blogPost.title;
-    // postContent = blogPost.content;
-    // console.log(postTitle);
-    // console.log(postContent);
     blogPostObject = {
       title: rawblogPost.title,
       content: rawblogPost.content,
       date: rawblogPost.date,
+      slug: rawblogPost.slug,
     };
     blogPosts.push(blogPostObject);
   });
@@ -30,10 +27,11 @@ async function getBlogPosts(link) {
       year: "numeric",
     });
     postElement.classList.add("post");
+    postElement.id = blogPost.slug;
     postElement.innerHTML = `
-            <h3 class="post-title">${blogPost.title} <span class="post-date">${blogPostDateFormatted}</span></h3>
-            <div class="post-content">${blogPost.content}</div>
-        `;
+      <h3 class="post-title"><span class="copy-link" title="Copy link to post">🔗</span> ${blogPost.title} <span class="post-date">${blogPostDateFormatted}</span></h3>
+      <div class="post-content">${blogPost.content}</div>
+  `;
     blogPostsElement.appendChild(postElement);
   });
 
@@ -42,23 +40,41 @@ async function getBlogPosts(link) {
   allPostTitles.forEach((postTitle) => {
     postTitle.addEventListener("click", function () {
       allPostContent.forEach((c) => c.classList.remove("visible"));
-      //   allPostContent.forEach((c) => c.classList.add("invisible"));
       if (postTitle.classList.contains("active")) {
-        //   allPostTitles.classList.remove("active");
         allPostTitles.forEach((t) => t.classList.remove("active"));
+        history.replaceState(null, "", " ");
         allPostContent.forEach((c) => c.classList.remove("visible"));
-        // allPostContent.forEach((c) => c.classList.add("invisible"));
-        //   allPostContent.classList.remove("visible");
-        //   allPostContent.classList.add("invisible");
       } else {
         allPostTitles.forEach((t) => t.classList.remove("active"));
         postTitle.classList.add("active");
-        // postTitle.nextElementSibling.classList.remove("invisible");
+        history.replaceState(null, "", "#" + postTitle.parentElement.id);
         postTitle.nextElementSibling.classList.add("visible");
-        //   Make its post content visible
       }
     });
   });
+
+  document.querySelectorAll(".copy-link").forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const slug = this.closest(".post").id;
+      const postUrl =
+        window.location.origin + window.location.pathname + "#" + slug;
+      navigator.clipboard.writeText(postUrl);
+      this.textContent = "✔️";
+      setTimeout(() => {
+        this.textContent = "🔗";
+      }, 4500);
+    });
+  });
+
+  if (window.location.hash) {
+    const targetPost = document.querySelector(window.location.hash);
+    if (targetPost) {
+      const targetTitle = targetPost.querySelector(".post-title");
+      targetTitle.click();
+      targetPost.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 }
 
 getBlogPosts(url);

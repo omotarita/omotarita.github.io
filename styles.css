@@ -55,6 +55,10 @@ u {
   color: rgb(106, 43, 135);
 }
 
+figure {
+  margin: 0;
+}
+
 .sidebar {
   display: flex;
   padding: 2rem 2rem 1rem 1rem;
@@ -175,6 +179,7 @@ u {
   height: auto;
 }
 
-figure {
-  margin: 0;
+.copy-link {
+  cursor: pointer;
+  font-size: 0.8rem;
 }
