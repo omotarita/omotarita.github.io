@@ -118,6 +118,10 @@ u {
     border-right: none;
     justify-content: center;
     box-sizing: border-box;
+    padding: 0.5rem 1rem 0.75rem 1rem;
+  }
+  .sidebar-section {
+    margin-bottom: 0;
   }
   .sidebar-footer {
     display: none;
