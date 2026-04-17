@@ -32,7 +32,7 @@ async function getBlogPosts(link) {
     postElement.classList.add("post");
     postElement.innerHTML = `
             <h3 class="post-title">${blogPost.title} <span class="post-date">${blogPostDateFormatted}</span></h3>
-            <div class="post-content invisible">${blogPost.content}</div>
+            <div class="post-content">${blogPost.content}</div>
         `;
     blogPostsElement.appendChild(postElement);
   });
@@ -42,17 +42,18 @@ async function getBlogPosts(link) {
   allPostTitles.forEach((postTitle) => {
     postTitle.addEventListener("click", function () {
       allPostContent.forEach((c) => c.classList.remove("visible"));
+      //   allPostContent.forEach((c) => c.classList.add("invisible"));
       if (postTitle.classList.contains("active")) {
         //   allPostTitles.classList.remove("active");
         allPostTitles.forEach((t) => t.classList.remove("active"));
         allPostContent.forEach((c) => c.classList.remove("visible"));
-        allPostContent.forEach((c) => c.classList.add("invisible"));
+        // allPostContent.forEach((c) => c.classList.add("invisible"));
         //   allPostContent.classList.remove("visible");
         //   allPostContent.classList.add("invisible");
       } else {
         allPostTitles.forEach((t) => t.classList.remove("active"));
         postTitle.classList.add("active");
-        postTitle.nextElementSibling.classList.remove("invisible");
+        // postTitle.nextElementSibling.classList.remove("invisible");
         postTitle.nextElementSibling.classList.add("visible");
         //   Make its post content visible
       }

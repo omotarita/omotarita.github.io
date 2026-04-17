@@ -22,13 +22,13 @@
   font-style: normal;
 }
 
-.invisible {
+/* .invisible {
   display: none;
-}
+} */
 
-.visible {
+/* .visible {
   display: block;
-}
+} */
 
 h1 {
   font-size: 3rem;
@@ -157,4 +157,9 @@ u {
 .post-content {
   font-size: 0.87rem;
   font-family: "Red Hat Text", sans-serif;
+  display: none;
+}
+
+.post-content.visible {
+  display: block;
 }
