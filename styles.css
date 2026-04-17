@@ -101,7 +101,7 @@ u {
   flex-direction: row;
 }
 
-@media (max-width: 460px) {
+@media (max-width: 840px) {
   .page-content {
     display: flex;
     /* gap: 3em; */
@@ -167,4 +167,14 @@ u {
 
 .post-content.visible {
   display: block;
+}
+
+.post-content img {
+  width: 70vw;
+  max-width: 450px;
+  height: auto;
+}
+
+figure {
+  margin: 0;
 }
