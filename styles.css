@@ -139,6 +139,7 @@ button {
 }
 
 .sidebar-section {
+  align-items: center;
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
   display: flex;
@@ -206,6 +207,7 @@ button {
     padding: 0.5rem 1rem 0.75rem 1rem;
   }
   .sidebar-section {
+    align-items: center;
     font-size: 0.9rem;
     margin-bottom: 0;
     display: flex;
@@ -255,6 +257,7 @@ button {
     padding: 0.5rem 1rem 0.75rem 1rem;
   }
   .sidebar-section {
+    align-items: center;
     font-size: 3.2vw;
     margin-bottom: 0;
     display: flex;

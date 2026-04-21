@@ -1,5 +1,14 @@
-if (window.matchMedia("(min-width: 841px)").matches) {
-  console.log("media is not mobile");
+// Click handler — runs on all screen sizes
+document.querySelectorAll(".hover-text").forEach((btn) => {
+  btn.addEventListener("click", function () {
+    if (this.dataset.href) {
+      window.open(this.dataset.href, "_blank");
+    }
+  });
+});
+
+// Hover effect — desktop only
+if (window.matchMedia("(min-width: 961px)").matches) {
   document.querySelectorAll(".hover-text").forEach((btn) => {
     btn.addEventListener("mouseenter", function () {
       document.querySelector(".about-section").classList.add("faded");
@@ -20,11 +29,18 @@ if (window.matchMedia("(min-width: 841px)").matches) {
         document.getElementById(imageId).style.display = "none";
       }
     });
-
-    btn.addEventListener("click", function () {
-      if (this.dataset.href) {
-        window.open(this.dataset.href, "_blank");
-      }
-    });
   });
 }
+
+// Click elsewhere to reset — desktop only
+document.addEventListener("click", function (e) {
+  if (!e.target.closest(".hover-text")) {
+    document.querySelector(".about-section").classList.remove("faded");
+    document.querySelectorAll(".hover-text.hovered").forEach((btn) => {
+      btn.classList.remove("hovered");
+    });
+    document.querySelectorAll(".secret-image").forEach((img) => {
+      img.style.display = "none";
+    });
+  }
+});
