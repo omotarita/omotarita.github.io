@@ -172,7 +172,7 @@ button {
   flex-direction: row;
 }
 
-@media (min-width: 840px) {
+@media (min-width: 960px) {
   .content-left {
     width: 50%;
     padding: 0 10px 0 0;
@@ -186,7 +186,7 @@ button {
   }
 }
 
-@media (min-width: 520px) and (max-width: 840px) {
+@media (min-width: 520px) and (max-width: 960px) {
   .page-content {
     display: flex;
     /* gap: 3em; */
@@ -255,7 +255,7 @@ button {
     padding: 0.5rem 1rem 0.75rem 1rem;
   }
   .sidebar-section {
-    font-size: 2.95vw;
+    font-size: 3.2vw;
     margin-bottom: 0;
     display: flex;
     flex-direction: row;
