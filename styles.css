@@ -42,11 +42,20 @@ h3 {
   font-size: 1.05rem;
 }
 
-body {
+/* body {
   font-size: 0.87rem;
   font-family: "Red Hat Text", sans-serif;
   background-color: rgb(238, 238, 238);
   color: #2c2c2c;
+} */
+
+body {
+  font-size: 0.87rem;
+  font-family: "Red Hat Text", sans-serif;
+  background-color: rgb(253 246 231);
+  /* background-color: rgb(238, 238, 238); */
+  color: #000000;
+  line-height: 1.8;
 }
 
 a,
@@ -57,6 +66,62 @@ u {
 
 figure {
   margin: 0;
+}
+
+.copy {
+}
+/* 
+button {
+  color: rgb(219, 112, 30);
+} */
+
+.hover-text {
+  color: rgb(219, 112, 30);
+  border: none;
+  background: none;
+  font-size: 0.87rem;
+  font-family: "Red Hat Text", sans-serif;
+  padding: 0;
+}
+
+.hover-text:hover {
+  color: rgb(213, 106, 24);
+}
+
+.secret-image {
+  display: none;
+  position: absolute;
+}
+
+.about-section.faded .plain-copy {
+  opacity: 0.05;
+  transition: opacity 0.2s;
+}
+
+.about-section.faded .hover-text {
+  opacity: 0.05;
+  transition: opacity 0.2s;
+}
+
+.about-section.faded .hover-text.hovered {
+  opacity: 1;
+  transform: scale(1.05);
+  transform-origin: left center;
+  transition:
+    font-size 0.2s,
+    opacity 0.2s;
+}
+
+.hover-text[data-href] {
+  cursor: pointer;
+}
+
+.hover-text:not([data-href]) {
+  cursor: default;
+}
+
+.inline-icon {
+  display: none;
 }
 
 .sidebar {
@@ -76,6 +141,8 @@ figure {
 .sidebar-section {
   font-size: 0.9rem;
   margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar-section a {
@@ -90,7 +157,7 @@ figure {
 .about-content {
   font-size: 0.87rem;
   font-family: "Red Hat Text", sans-serif;
-  background-color: rgb(238, 238, 238);
+  /* background-color: rgb(238, 238, 238); */
   color: #2c2c2c;
 }
 
@@ -105,7 +172,21 @@ figure {
   flex-direction: row;
 }
 
-@media (max-width: 840px) {
+@media (min-width: 840px) {
+  .content-left {
+    width: 50%;
+    padding: 0 10px 0 0;
+  }
+
+  .content-right {
+    width: 50%;
+    position: relative;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+  }
+}
+
+@media (min-width: 520px) and (max-width: 840px) {
   .page-content {
     display: flex;
     /* gap: 3em; */
@@ -125,19 +206,98 @@ figure {
     padding: 0.5rem 1rem 0.75rem 1rem;
   }
   .sidebar-section {
+    font-size: 0.9rem;
     margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
   }
   .sidebar-footer {
     display: none;
+  }
+  .content-left {
+    width: 80%;
+    padding: 0 10px 0 0;
+  }
+  .content-right {
+    width: 0%;
+    display: none;
+  }
+
+  .inline-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-content {
+    display: flex;
+    /* gap: 3em; */
+    flex-direction: column;
+  }
+  .sidebar {
+    display: flex;
+    gap: 3em;
+    flex-direction: row;
+    border-bottom: 1px solid #ddd;
+    position: static;
+    min-width: 100%;
+    min-height: 0;
+    border-right: none;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem 0.75rem 1rem;
+  }
+  .sidebar-section {
+    font-size: 2.95vw;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .sidebar-footer {
+    display: none;
+  }
+  .content-left {
+    width: 80%;
+    padding: 0 10px 0 0;
+  }
+  .content-right {
+    width: 0%;
+    display: none;
+  }
+
+  .inline-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    vertical-align: middle;
+    margin-left: 4px;
   }
 }
 
 .main-content {
   padding: 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.main-content.blog {
+  padding: 0 1.5rem;
+  display: block;
+  /* flex-direction: column; */
 }
 
 .header {
-  padding: 2rem 0;
+  /* padding: 2rem 0; */
 }
 
 .blog-posts {
