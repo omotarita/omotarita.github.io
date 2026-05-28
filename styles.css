@@ -192,6 +192,7 @@ button {
 
 .about-content {
   font-size: 0.87rem;
+  font-weight: 350;
   font-family: "Red Hat Text", sans-serif;
   /* background-color: rgb(238, 238, 238); */
   color: #2c2c2c;
@@ -363,6 +364,7 @@ button {
 
 .post-content {
   font-size: 0.87rem;
+  font-weight: 350;
   font-family: "Red Hat Text", sans-serif;
   display: none;
 }
