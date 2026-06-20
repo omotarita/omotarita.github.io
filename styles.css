@@ -11,7 +11,7 @@
 .red-hat-text-normal {
   font-family: "Red Hat Text", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 400;
+  font-weight: 350;
   font-style: normal;
 }
 
@@ -56,6 +56,10 @@ body {
   /* background-color: rgb(238, 238, 238); */
   color: #000000;
   line-height: 1.8;
+}
+
+strong {
+  font-weight: 580;
 }
 
 a,
@@ -188,6 +192,7 @@ button {
 
 .about-content {
   font-size: 0.87rem;
+  font-weight: 350;
   font-family: "Red Hat Text", sans-serif;
   /* background-color: rgb(238, 238, 238); */
   color: #2c2c2c;
@@ -359,6 +364,7 @@ button {
 
 .post-content {
   font-size: 0.87rem;
+  font-weight: 350;
   font-family: "Red Hat Text", sans-serif;
   display: none;
 }
